@@ -7,8 +7,6 @@ const logger = require('morgan');
 const bodyParser = require("body-parser");
 const connection = require("./mongoose");
 
-const indexController = require('./controllers/index-controller');
-const usersController = require('./controllers/users-controller');
 const articlesController = require('./controllers/articles-controller');
 
 const app = express();
@@ -24,8 +22,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexController);
-app.use('/users', usersController);
 app.use('/articles', articlesController);
 
 // catch 404 and forward to error handler
